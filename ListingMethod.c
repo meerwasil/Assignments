@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
-void main()
+int main()
 {
     int s1,s2;
     int domain[20],codomain[20];
@@ -16,7 +16,7 @@ void main()
     printf("Enter Values of Co-Domain\n");
     for(int i=0;i<s2;i++)
         scanf("%d",&codomain[i]);
-    printf("1 for Division\n2 for Equal\n3 for Multiplication\n4 for Addition\5 for Subtraction\n");
+    printf("1 for Division\n2 for Equal\n3 for X^2\n");
     scanf("%d",&ir);
     switch(ir)
     {
@@ -45,14 +45,18 @@ void main()
 			printf("}");   		
     		break;
 		case 3:
-    		rel='*';
-    		break;
-		case 4:
-    		rel='+';
-    		break;
-		case 5:
-    		rel='-';
-    		break;    		
+    		printf("{");
+			for(int i=0;i<s1;i++)
+			{
+				for(int j=0;j<s2;j++)
+				{
+					if((domain[i]*domain[i])==codomain[j])
+					printf("(%d,%d),",domain[i],codomain[j]);	
+				}				
+			} 
+			printf("}");
+    		break;   		
 	}	
     getch();
+    return 0;
 }
